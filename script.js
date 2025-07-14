@@ -72,3 +72,14 @@ contactButtons.forEach(btn => {
 
 // بدء عرض الصفحة الرئيسية عند تحميل الموقع
 showSection('hero');
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XP3F1J4NE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0XP3F1J4NE');
+</script>
+
