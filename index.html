@@ -4,29 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Poppins:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />  
+  <link rel="stylesheet" href="style.css" />
   <title>خدمات الهاكينج</title>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0XP3F1J4NE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-0XP3F1J4NE');
-  </script>
-  <!-- End Google Analytics -->
-
 </head>
 <body>
 
+<button id="toggleMenu">☰ القائمة</button>
+
+<aside id="sideMenu">
+  <ul>
+    <li><a href="#" id="aboutBtnSide">AboutMe</a></li>
+    <li><a href="#" id="servicesBtnSide">Services</a></li>
+    <li><a href="#" id="contactBtnSide">ContactMe</a></li>
+  </ul>
+</aside>
+
 <header>
-  <img src="assets/svg/logo.svg" alt="DKR" id="logo" />
+  <img class="logo" src="assets/svg/logo.svg" alt="D K R" id="logo" />
   <nav class="navigation">
     <ul>
       <li><a href="#" id="aboutBtn">AboutMe</a></li>
-      <li><a href="#" id="servicesBtn">services</a></li>
+      <li><a href="#" id="servicesBtn">Services</a></li>
       <li><a href="#" id="contactBtn">ContactMe</a></li>
     </ul>
   </nav>
@@ -44,18 +42,20 @@
 </section>
 
 <section class="aboutMe" id="aboutMe" style="display:none;">
-  <img src="assets/imgs/AboutMe.png" alt="aboutMe image" class="aboutMeImg" />
-  <div class="textContainer">
-    <div class="textTitle">
-      <h1 class="aboutTitle">me</h1>
-      <h1 class="aboutName">About</h1>
-      <img src="assets/svg/lightbulb.svg" alt="light" class="light" />
+  <div class="aboutMe-wrapper">
+    <img src="assets/imgs/AboutMe.png" alt="aboutMe image" class="aboutMeImg" />
+    <div class="textContainer">
+      <div class="textTitle">
+        <h1 class="aboutTitle">me</h1>
+        <h1 class="aboutName">About</h1>
+        <img src="assets/svg/lightbulb.svg" alt="light" class="light" />
+      </div>
+      <h1>نبذة عني</h1>
+      <p class="aboutMePar">
+        خبير في مجال الهاكينج الاحترافي وأمن المعلومات، أقدّم حلولاً متقدمة تعتمد على الاحترافية والسرية التامة. أمتلك خبرة واسعة في اختراق الأنظمة واكتشاف الثغرات، مع الالتزام الكامل بتحقيق أفضل النتائج بأعلى درجات الكفاءة والدقة. هدفي هو توفير خدمات سيبرانية عالية الجودة تضمن الحماية، التحكّم، والتفوق في أي بيئة رقمية.
+      </p>
+      <button id="backBtn2">العودة للرئيسية</button>
     </div>
-    <h1>نبذة عني</h1>
-    <p class="aboutMePar">
-      خبير في مجال الهاكينج الاحترافي وأمن المعلومات، أقدّم حلولاً متقدمة تعتمد على الاحترافية والسرية التامة. أمتلك خبرة واسعة في اختراق الأنظمة واكتشاف الثغرات، مع الالتزام الكامل بتحقيق أفضل النتائج بأعلى درجات الكفاءة والدقة. هدفي هو توفير خدمات سيبرانية عالية الجودة تضمن الحماية، التحكّم، والتفوق في أي بيئة رقمية.
-    </p>
-    <button id="backBtn2">العودة للرئيسية</button>
   </div>
 </section>
 
@@ -71,16 +71,9 @@
     </thead>
     <tbody>
       <tr>
-        <td>قناة تلجرام</td>
+        <td>تواصل عبر التلجرام</td>
         <td>@DARKROOTN</td>
         <td><a href="https://t.me/DARKROOTN" target="_blank" rel="noopener noreferrer" class="open-btn">افتح</a></td>
-      </tr>
-      
-      
-      <tr>
-        <td>الإيميل</td>
-        <td>darkrootas@gmail.com</td>
-        <td><a href="mailto:darkroot@example.com" target="_blank" rel="noopener noreferrer" class="open-btn">افتح</a></td>
       </tr>
     </tbody>
   </table>
@@ -90,136 +83,26 @@
 <section class="services" id="services" style="display:none;">
   <h2 class="section-title">خدماتنا</h2>
   <div class="services-container">
+    <div class="service-card">
+      <img src="assets/imgs/server_1.jpg" alt="خدمة اختبار الاختراق" class="service-img" />
+      <h3 class="service-title">اختبار اختراق قوة موقعك</h3>
+      <p class="service-desc">
+        نقوم بفحص شامل لأنظمة الحماية واكتشاف الثغرات الأمنية قبل أن يستغلها الآخرون.
+      </p>
+      <p class="many">
+        للاستفسار عن افضل الاسعار يرجى التواصل معنا
+      </p>
+      <a href="#" class="service-contact-btn">Contact Us</a>
 
-
-<div class="service-card">
-  <img src="assets/imgs/server_1.jpg" alt="خدمة اختبار الاختراق" class="service-img" />
-  <h3 class="service-title">اختبار الاختراق</h3>
-  <p class="service-desc">
-    نقوم بفحص شامل لأنظمة الحماية واكتشاف الثغرات الأمنية قبل أن يستغلها الآخرون.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_2.jpg" alt="خدمة تحليل البرمجيات الخبيثة" class="service-img" />
-  <h3 class="service-title">تحليل البرمجيات الخبيثة</h3>
-  <p class="service-desc">
-    فحص وتحليل البرمجيات الضارة لتحديد مصادرها وطرق التخلص منها بشكل فعال.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_3.jpg" alt="خدمة تأمين الشبكات" class="service-img" />
-  <h3 class="service-title">تأمين الشبكات</h3>
-  <p class="service-desc">
-    بناء أنظمة حماية متقدمة لشبكاتك لضمان سرية وخصوصية المعلومات.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_2.jpg" alt="خدمة اختبار الاختراق" class="service-img" />
-  <h3 class="service-title">اختبار الاختراق</h3>
-  <p class="service-desc">
-    نقوم بفحص شامل لأنظمة الحماية واكتشاف الثغرات الأمنية قبل أن يستغلها الآخرون.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_3.jpg" alt="خدمة تحليل البرمجيات الخبيثة" class="service-img" />
-  <h3 class="service-title">تحليل البرمجيات الخبيثة</h3>
-  <p class="service-desc">
-    فحص وتحليل البرمجيات الضارة لتحديد مصادرها وطرق التخلص منها بشكل فعال.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_1.jpg" alt="خدمة تأمين الشبكات" class="service-img" />
-  <h3 class="service-title">تأمين الشبكات</h3>
-  <p class="service-desc">
-    بناء أنظمة حماية متقدمة لشبكاتك لضمان سرية وخصوصية المعلومات.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_3.jpg" alt="خدمة اختبار الاختراق" class="service-img" />
-  <h3 class="service-title">اختبار الاختراق</h3>
-  <p class="service-desc">
-    نقوم بفحص شامل لأنظمة الحماية واكتشاف الثغرات الأمنية قبل أن يستغلها الآخرون.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-<div class="service-card">
-  <img src="assets/imgs/server_1.jpg" alt="خدمة تحليل البرمجيات الخبيثة" class="service-img" />
-  <h3 class="service-title">تحليل البرمجيات الخبيثة</h3>
-  <p class="service-desc">
-    فحص وتحليل البرمجيات الضارة لتحديد مصادرها وطرق التخلص منها بشكل فعال.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_2.jpg" alt="خدمة تأمين الشبكات" class="service-img" />
-  <h3 class="service-title">تأمين الشبكات</h3>
-  <p class="service-desc">
-    بناء أنظمة حماية متقدمة لشبكاتك لضمان سرية وخصوصية المعلومات.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-<div class="service-card">
-  <img src="assets/imgs/server_1.jpg" alt="خدمة اختبار الاختراق" class="service-img" />
-  <h3 class="service-title">اختبار الاختراق</h3>
-  <p class="service-desc">
-    نقوم بفحص شامل لأنظمة الحماية واكتشاف الثغرات الأمنية قبل أن يستغلها الآخرون.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
-<div class="service-card">
-  <img src="assets/imgs/server_2.jpg" alt="خدمة تحليل البرمجيات الخبيثة" class="service-img" />
-  <h3 class="service-title">تحليل البرمجيات الخبيثة</h3>
-  <p class="service-desc">
-    فحص وتحليل البرمجيات الضارة لتحديد مصادرها وطرق التخلص منها بشكل فعال.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-<div class="service-card">
-  <img src="assets/imgs/server_3.jpg" alt="خدمة تأمين الشبكات" class="service-img" />
-  <h3 class="service-title">تأمين الشبكات</h3>
-  <p class="service-desc">
-    بناء أنظمة حماية متقدمة لشبكاتك لضمان سرية وخصوصية المعلومات.
-  </p>
-  <a href="#" class="service-contact-btn">Contact Us</a>
-</div>
-
-
+    </div>
     
+
+
+
 
   </div>
 </section>
 
 <script src="script.js"></script>
-
-  <div class="menu-toggle" onclick="document.querySelector('.navigation').classList.toggle('open')">
-  ☰
-</div>
-
-  
 </body>
 </html>

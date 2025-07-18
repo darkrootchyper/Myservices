@@ -1,85 +1,94 @@
-const heroSection = document.getElementById('heroSection');
-const aboutSection = document.getElementById('aboutMe');
-const contactSection = document.getElementById('contactInfo');
-const servicesSection = document.getElementById('services');
+const toggleMenuBtn = document.getElementById('toggleMenu');
+const sideMenu = document.getElementById('sideMenu');
 
 const aboutBtn = document.getElementById('aboutBtn');
-const contactBtn = document.getElementById('contactBtn');
 const servicesBtn = document.getElementById('servicesBtn');
-const heroServicesBtn = document.getElementById('heroServicesBtn');
-const backBtn2 = document.getElementById('backBtn2');
-const backBtn2Contact = document.getElementById('backBtn2Contact');
+const contactBtn = document.getElementById('contactBtn');
 
-// تابع لإظهار القسم المطلوب وإخفاء الباقي
+const aboutBtnSide = document.getElementById('aboutBtnSide');
+const servicesBtnSide = document.getElementById('servicesBtnSide');
+const contactBtnSide = document.getElementById('contactBtnSide');
+
+const heroServicesBtn = document.getElementById('heroServicesBtn');
+const heroSection = document.getElementById('heroSection');
+const aboutSection = document.getElementById('aboutMe');
+const servicesSection = document.getElementById('services');
+const contactSection = document.getElementById('contactInfo');
+
+const backBtnAbout = document.getElementById('backBtn2');
+const backBtnContact = document.getElementById('backBtn2Contact');
+
+toggleMenuBtn.addEventListener('click', () => {
+  sideMenu.classList.toggle('open');
+});
+
 function showSection(section) {
   heroSection.style.display = 'none';
   aboutSection.style.display = 'none';
-  contactSection.style.display = 'none';
   servicesSection.style.display = 'none';
+  contactSection.style.display = 'none';
 
-  if (section === 'hero') heroSection.style.display = 'flex';
-  else if (section === 'about') aboutSection.style.display = 'flex';
-  else if (section === 'contact') contactSection.style.display = 'block';
-  else if (section === 'services') servicesSection.style.display = 'block';
+  section.style.display = 'block';
+  sideMenu.classList.remove('open');
 }
 
-// أحداث الأزرار
+function showHome() {
+  heroSection.style.display = 'flex';
+  aboutSection.style.display = 'none';
+  servicesSection.style.display = 'none';
+  contactSection.style.display = 'none';
+
+  sideMenu.classList.remove('open');
+}
+
 aboutBtn.addEventListener('click', e => {
   e.preventDefault();
-  showSection('about');
-  aboutSection.scrollIntoView({ behavior: 'smooth' });
+  showSection(aboutSection);
 });
-
-contactBtn.addEventListener('click', e => {
-  e.preventDefault();
-  showSection('contact');
-  contactSection.scrollIntoView({ behavior: 'smooth' });
-});
-
 servicesBtn.addEventListener('click', e => {
   e.preventDefault();
-  showSection('services');
-  servicesSection.scrollIntoView({ behavior: 'smooth' });
+  showSection(servicesSection);
+});
+contactBtn.addEventListener('click', e => {
+  e.preventDefault();
+  showSection(contactSection);
+});
+aboutBtnSide.addEventListener('click', e => {
+  e.preventDefault();
+  showSection(aboutSection);
+});
+servicesBtnSide.addEventListener('click', e => {
+  e.preventDefault();
+  showSection(servicesSection);
+});
+contactBtnSide.addEventListener('click', e => {
+  e.preventDefault();
+  showSection(contactSection);
 });
 
-if(heroServicesBtn){
-  heroServicesBtn.addEventListener('click', e => {
-    e.preventDefault();
-    showSection('services');
-    servicesSection.scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
-backBtn2.addEventListener('click', () => {
-  showSection('hero');
-  heroSection.scrollIntoView({ behavior: 'smooth' });
+heroServicesBtn.addEventListener('click', e => {
+  e.preventDefault();
+  showSection(servicesSection);
 });
 
-backBtn2Contact.addEventListener('click', () => {
-  showSection('hero');
-  heroSection.scrollIntoView({ behavior: 'smooth' });
-});
-
-// روابط زر التواصل تحت كل خدمة
-const contactButtons = document.querySelectorAll('.service-contact-btn');
-contactButtons.forEach(btn => {
+document.querySelectorAll('.service-contact-btn').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    showSection('contact');
-    contactSection.scrollIntoView({ behavior: 'smooth' });
+    showSection(contactSection);
   });
 });
 
-// بدء عرض الصفحة الرئيسية عند تحميل الموقع
-showSection('hero');
+backBtnAbout.addEventListener('click', e => {
+  e.preventDefault();
+  showHome();
+});
+backBtnContact.addEventListener('click', e => {
+  e.preventDefault();
+  showHome();
+});
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XP3F1J4NE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0XP3F1J4NE');
-</script>
-
+document.getElementById("aboutBtn").addEventListener("click", function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});

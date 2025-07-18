@@ -13,6 +13,7 @@ body {
   color: #00ff99;
   direction: rtl;
   text-align: right;
+  overflow-x: hidden;
 }
 
 header {
@@ -38,17 +39,24 @@ header {
 
 .navigation a {
   text-decoration: none;
-  color: #00ff99;
+  color: #071711;
   font-weight: 700;
   transition: 0.3s;
+  background-color: #00cc7a;
+  padding: 8px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px #00ff99;
+  cursor: pointer;
 }
 
 .navigation a:hover {
   color: #ff00ff;
+  background-color: #00cc7a;
+  box-shadow: 0 0 25px #00ff99;
 }
 
 hr {
-  opacity: 10%;
+  opacity: 0.1;
   border: 1px solid #00ff99;
 }
 
@@ -59,7 +67,7 @@ hr {
   gap: 80px;
   padding: 100px 10%;
   height: 100vh;
-  background-color: #0f0f0f;
+  background-color: #0f152b60;
   flex-wrap: wrap;
   animation: fadeInUp 1.4s ease;
 }
@@ -141,6 +149,7 @@ hr {
 
 .textContainer {
   max-width: 600px;
+  width: 100%;
 }
 
 .textTitle {
@@ -158,11 +167,6 @@ hr {
 .light {
   width: 40px;
   animation: blink 1.2s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
 }
 
 .aboutMePar {
@@ -227,7 +231,6 @@ hr {
   box-shadow: 0 0 35px #00ff99;
 }
 
-/* قسم الخدمات */
 .services {
   max-width: 1200px;
   margin: 5rem auto;
@@ -318,43 +321,18 @@ hr {
   box-shadow: 0 0 35px #00ff99;
 }
 
-@media (max-width: 768px) {
-  .services-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .service-card {
-    width: 90%;
-  }
+.many {
+  font-weight: 700;
+  color: #ff4d4d;
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+.many:hover {
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 4px;
 }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes zoomIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
-
 
 @media (max-width: 1023px) {
   header {
@@ -420,120 +398,661 @@ hr {
     margin-right: 0;
   }
 }
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+  }
+  .navigation ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .navigation a {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+  }
+  .hero {
+    flex-direction: column;
+    padding: 40px 10px;
+    gap: 30px;
+    height: auto;
+  }
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero img {
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .aboutMe {
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  .aboutMeImg {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .textContainer {
+    max-width: 100%;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .services-container {
+    flex-direction: column;
+    padding: 0 15px;
+    gap: 20px;
+  }
+  .service-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .contact-info {
+    max-width: 95%;
+    margin: 30px auto;
+    padding: 15px 10px;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* قائمة الجوال */
+#toggleMenu {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1001;
+  display: none;
+}
+
+#sideMenu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #111;
+  padding-top: 60px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+#sideMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#sideMenu ul li {
+  margin: 20px 0;
+}
+
+#sideMenu a {
+  color: #00ff99;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+}
+
+#sideMenu.open {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  #toggleMenu {
+    display: block;
+  }
+
+  nav.navigation {
+    display: none;
+  }
+}
+
+.aboutMe-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.textContainer {
+  max-width: 600px;
+  text-align: right;
+  color: #00ff99;
+}
+
+.aboutMeImg {
+  width: 350px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.aboutMeImg:hover {
+  transform: scale(1.05);
+}
+
+.textTitle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.aboutTitle, .aboutName {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.light {
+  width: 40px;
+  animation: blink 1.2s infinite;
+}
+
+.aboutMePar {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #eeeeee;
+  margin: 20px 0 30px 0;
+}
+
+#backBtn2 {
+  background-color: #00ff99;
+  color: #000;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 25px #00ff99;
+  transition: all 0.3s ease;
+}
+
+#backBtn2:hover {
+  background-color: #00cc7a;
+  box-shadow: 0 0 35px #00ff99;
+}
 
 
 @media (max-width: 768px) {
-  .navigation ul {
+  .aboutMe-wrapper {
     flex-direction: column;
-    gap: 1rem;
-    background: #000;
-    position: absolute;
-    top: 80px;
-    right: 0;
+    gap: 20px;
+  }
+  .textContainer {
+    max-width: 100%;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .textTitle {
+    justify-content: center;
+  }
+  .aboutTitle, .aboutName {
+    font-size: 28px;
+  }
+  .light {
+    width: 30px;
+  }
+  #backBtn2 {
     width: 100%;
-    padding: 1rem;
-    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutMe-wrapper {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 25px !important;
+    padding: 20px 15px !important;
   }
 
-  .navigation.open ul {
-    display: flex;
+  .aboutMeImg {
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+    box-shadow: 0 0 25px #00ff99 !important;
   }
 
-  .menu-toggle {
+  .textContainer {
+    max-width: 100% !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+  }
+
+  .textTitle {
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  .aboutTitle, .aboutName {
+    font-size: 26px !important;
+  }
+
+  .light {
+    width: 30px !important;
+  }
+
+  #backBtn2 {
+    width: 100% !important;
+    padding: 15px 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info table {
     display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .contact-info th, .contact-info td {
+    white-space: nowrap;
+  }
+}
+
+
+#heroServicesBtn {
+  cursor: pointer;
+  display: inline-block;
+}
+
+
+.service-contact-btn {
+  cursor: pointer;
+}
+
+
+#sideMenu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 20px;
+}
+
+#sideMenu ul li {
+  margin: 0;
+}
+
+#sideMenu a {
+  padding: 12px;
+  font-size: 22px;
+  border-radius: 10px;
+  background-color: #111;
+  color: #00ff99;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+#sideMenu a:hover {
+  background-color: #00cc7a;
+  color: #000;
+}
+
+
+.service-contact-btn {
+  background-color: #00ff99;
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 0 25px #00ff99;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.service-contact-btn:hover {
+  background-color: #00cc7a;
+  box-shadow: 0 0 35px #00ff99;
+  color: #000;
+}
+
+@media (max-width: 480px) {
+  .aboutMe-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    gap: 20px;
+  }
+
+  .aboutMeImg {
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px #00ff99;
+  }
+
+  .textContainer {
+    max-width: 100%;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .textTitle {
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .aboutTitle, .aboutName {
+    font-size: 24px;
+  }
+
+  .aboutMePar {
+    font-size: 16px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .light {
+    width: 25px;
+  }
+
+  #backBtn2 {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutMe-wrapper {
+    flex-direction: column !important;
+    align-items: center !important;    
+    gap: 25px !important;              
+    padding: 20px 15px !important;    
+  }
+
+  .aboutMeImg {
+    width: 100% !important;            
+    max-width: 350px !important;       
+    margin: 0 auto !important;         
+    box-shadow: 0 0 25px #00ff99 !important;
+  }
+
+  .textContainer {
+    max-width: 100% !important;
+    padding: 0 15px !important;
+    text-align: center !important;    
+  }
+
+  .textTitle {
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  .aboutTitle, .aboutName {
+    font-size: 26px !important;         
+  }
+
+  .light {
+    width: 30px !important;
+  }
+
+  .aboutMePar {
+    font-size: 16px !important;        
+    line-height: 1.6 !important;       
+  }
+
+  #backBtn2 {
+    width: 100% !important;
+    padding: 15px 0 !important;
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutMe-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 15px;
+    flex-wrap: nowrap; 
+    
+  }
+
+  .aboutMeImg {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    box-shadow: 0 0 25px #00ff99;
+  }
+
+  .textContainer {
+    max-width: 100%;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .textTitle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .aboutTitle, .aboutName {
+    font-size: 26px;
+  }
+
+  .light {
+    width: 30px;
+  }
+
+  .aboutMePar {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #eeeeee;
+  }
+
+  #backBtn2 {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+  }
+}
+.contact-info td:last-child {
+  text-align: right;
+}
+
+#toggleMenu {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #00ff99;
+  color: #000;
+  border: none;
+  padding: 12px 18px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 15px #00ff99;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#toggleMenu:hover {
+  background-color: #00cc7a;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #toggleMenu {
+    padding: 6px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  #logo {
+    width: 120px;
+  }
+
+  section {
+    border: 2px solid #00ff99;
+    border-radius: 10px;
+    padding: 20px 15px;
+    margin: 20px 10px;
+    box-shadow: 0 0 15px #00ff99;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info .open-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  section {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    gap: 10px !important;
+  }
+}
+@media (max-width: 768px) {
+  #logo {
+    width: 140px;
+  }
+
+  #toggleMenu {
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #00cc7a;
+    color: #000;
+    box-shadow: 0 0 15px #00ff99;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  #logo {
+    width: 120px;
+    height: auto;
+  }
+
+  #toggleMenu {
+    padding: 8px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #00cc7a;
+    color: #000;
+    box-shadow: 0 0 15px #00ff99;
+    border: none;
     cursor: pointer;
-    color: #00ff99;
-    font-size: 2rem;
+    flex-shrink: 0;
   }
 }
 
 
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 2rem;
-    color: #00ff99;
-    cursor: pointer;
-    margin-right: 20px;
-    margin-bottom: 10px;
-  }
-
-  .navigation ul {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    padding: 10px;
-    background-color: #000;
-    display: none;
-  }
-
-  .navigation.open ul {
     display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
   }
 
-  .hero {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 2rem;
+  #logo {
+    width: 180px; 
     height: auto;
+  }
+
+  #toggleMenu {
+    padding: 10px 15px;
+    font-size: 18px;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  #sideMenu ul li {
+    background-color: #111;
+    border: 2px solid #00ff99;
+    border-radius: 10px;
+    margin: 12px 15px;
+    padding: 12px 10px;
+    box-shadow: 0 0 10px #00ff99;
+  }
+
+  #sideMenu ul li a {
+    color: #00ff99;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
     text-align: center;
   }
 
-  .hero img {
-    width: 100%;
-    max-width: 300px;
+  #sideMenu ul li:hover {
+    background-color: #00cc7a;
   }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .aboutMe {
-    flex-direction: column-reverse;
-    padding: 40px 20px;
-    gap: 2rem;
-  }
-
-  .aboutMeImg {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .textContainer {
-    margin: 0;
-  }
-
-  .services-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-card {
-    width: 90%;
-  }
-
-  .contact-info {
-    padding: 20px 10px;
-    margin: 20px;
-  }
-
-  .contact-info table {
-    font-size: 0.9rem;
-  }
-
-  .textTitle {
-    justify-content: center;
-    flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .menu li a {
+    color: black;
   }
 }
 
